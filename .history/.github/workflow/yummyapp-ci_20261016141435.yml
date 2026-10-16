@@ -1,0 +1,24 @@
+name : YummyApp Mobile Backend CI Pipeline
+on :
+push :
+branches : [ < DIEN_TEN_NHANH_CHINH > ] # Goi y : main
+pull_request :
+branches : [ < DIEN_TEN_NHANH_CHINH > ] # Goi y : main
+jobs :
+mobile - test - job :
+runs - on : < DIEN_TEN_RUNNER_UBUNTU > # Goi y : ubuntu -
+latest
+steps :
+- name : 1. Checkout Source Code
+uses : actions / checkout@v4
+- name : 2. Set up Python Environment
+uses : actions / setup - python@v5
+with :
+python - version : ’< DIEN_PHIEN_BAN > ’ # Goi y: ’3.11 ’
+- name : 3. Install Dependencies
+run : |
+python -m pip install -- upgrade pip
+pip install -r < DIEN_TEN_FILE_REQUIREMENTS >
+- name : 4. Execute Test Suite
+run : |
+< DIEN_LENH_CHAY_UNITTEST_DISCOVER >
