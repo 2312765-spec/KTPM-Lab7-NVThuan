@@ -1,0 +1,4 @@
+.history/
+__pycache__/
+.coverage
+coverage_html/
